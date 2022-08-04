@@ -49,7 +49,12 @@ function prompt(){
     })
     // Prompt responses
 .then(answer => {
-    console.log
+    console.log('answer', answer);
+    switch (answer.action){
+        case promptMessages.viewAllEmployees:
+            viewAllEmployees();
+            break;
+    }
 })
 
 }
