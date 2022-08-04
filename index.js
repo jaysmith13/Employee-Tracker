@@ -29,3 +29,27 @@ const connection = mysql.createConnection({
     password:'',
     database:'employees'
 });
+
+function prompt(){
+    inquirer
+    .prompt({
+        name:'action',
+        type:'list',
+        message:'Which option would you like to do?',
+        choices:[
+            promptMessages.viewAllEmployees,
+            promptMessages.ViewByDepartment,
+            promptMessages.ViewByManager,
+            promptMessages.addEmployee,
+            promptMessages.removeEmployee, 
+            promptMessages.updateRole,
+            promptMessages.updateEmployeeManager,
+            promptMessages.exit
+        ]
+    })
+    // Prompt responses
+
+
+}
+
+// functions selections
