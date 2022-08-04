@@ -48,7 +48,9 @@ function prompt(){
         ]
     })
     // Prompt responses
-
+.then(answer => {
+    console.log
+})
 
 }
 
