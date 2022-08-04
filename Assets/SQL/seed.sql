@@ -22,7 +22,7 @@ ORDER BY employee.id;
 SELECT CONCAT(manager.first_name, '', manager.last_name) as manager, department.name as department, employee.first_name, employee.last_name, role.title
 FROM employee
 LEFT JOIN employee manager on manager.id = employee.manager_id
-INNER JOIN role on (role.id = employee.role_id & employee.manager_id !='null')
+INNER JOIN role on (role.id = employee.role_id & employee.manager_id ='null')
 INNER JOIN department on (department.id = role.department_id)
 ORDER BY manager;
 
