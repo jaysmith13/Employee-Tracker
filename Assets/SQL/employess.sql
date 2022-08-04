@@ -4,17 +4,17 @@ Create Database employees;
 Use employees;
 //Department
 Create table department (
-id INT unsigned auto_increment primary key,
+id INT UNSIGNED auto_increment primary key,
 name VARCAR(30) UNIQUE NOT NULL);
 
 //Role
 create table role (
-id INT unsigned auto_increment primary key,
+id INT UNSIGNED auto_increment primary key,
 title VARCAR(30) unique not null,
 salary DECIMAL unsigned not null,
 department_id INT unsigned not null,
-Index dep_ind (department_id),
-Constraint fk_department foreign key (department_id) references department(id) on delete cascade
+INDEX dep_ind (department_id),
+Constraint fk_department foreign key (department_id) references department(id) on delete CASCADE
 );
 
 //Employee
@@ -24,7 +24,7 @@ first_name VARCAR(30) not null,
 last_name VARCAR(30) not null,
 role_id INT unsigned not null,
 Index role_ind (role_id),
-Constraint fk_role foreign key (role_id) references role(id) on delete cascade,
+Constraint fk_role foreign key (role_id) references role(id) on delete CASCADE,
 manager_id INT unsigned,
 INDEX man_ind (manager_id),
 Constraint fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) on delete set null
