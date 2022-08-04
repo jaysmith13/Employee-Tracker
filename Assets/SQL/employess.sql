@@ -2,7 +2,7 @@ Drop Database IF EXISTS employees;
 Create Database employees;
 
 Use employees;
-//Department
+
 Create table department (
 id INT UNSIGNED auto_increment primary key,
 name VARCAR(30) UNIQUE NOT NULL);
@@ -17,7 +17,7 @@ INDEX dep_ind (department_id),
 Constraint fk_department foreign key (department_id) references department(id) on delete CASCADE
 );
 
-//Employee
+
 Create table employee (
 id INT unsigned auto_increment primary key,
 first_name VARCAR(30) not null,
@@ -30,7 +30,7 @@ INDEX man_ind (manager_id),
 Constraint fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) on delete set null
 );
 
-// Departments
+
 
 use employees;
 Insert Into department
@@ -41,20 +41,20 @@ values
 ('Finance'),
 ('Legal');
 
-//Roles
+
 
 Insert Into role
 (title, salary, department_id)
 Values
 ('Salesperson', 80000, 1),
-('Lead Engineer', 150000, 2)
-('Software Engineer', 120000, 2)
-('Account Manager', 160000, 3)
-('Accountant', 125000, 3)
-('Legal Team Lead', 250000, 4)
+('Lead Engineer', 150000, 2),
+('Software Engineer', 120000, 2),
+('Account Manager', 160000, 3),
+('Accountant', 125000, 3),
+('Legal Team Lead', 250000, 4),
 ('Lawyer', 150000, 4);
 
-//Employee names
+
 Insert Into employee
 (first_name, last_name, role_id, manager_id)
 
