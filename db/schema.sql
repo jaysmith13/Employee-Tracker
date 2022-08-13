@@ -3,35 +3,30 @@ Create Database employees;
 
 Use employees;
 
-Create table department (
-id INT UNSIGNED auto_increment primary key,
-name VARCAR(30) UNIQUE NOT NULL);
-
-//Role
-create table role (
-id INT UNSIGNED auto_increment primary key,
-title VARCAR(30) unique not null,
-salary DECIMAL unsigned not null,
-department_id INT unsigned not null,
-INDEX dep_ind (department_id),
-Constraint fk_department foreign key (department_id) references department(id) on delete CASCADE
-);
-
+Create TABLE department (
+id INTEGER AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(30) NOT NULL);
 
 Create table employee (
-id INT unsigned auto_increment primary key,
-first_name VARCAR(30) not null,
-last_name VARCAR(30) not null,
-role_id INT unsigned not null,
+id INTEGER auto_increment PRIMARY KEY,
+first_name VARCHAR(30) NOT NULL,
+last_name VARCHAR(30) NOT NULL,
+role_id INTEGER  NOT NULL,
 Index role_ind (role_id),
-Constraint fk_role foreign key (role_id) references role(id) on delete CASCADE,
-manager_id INT unsigned,
+Constraint fk_role foreign key (role_id) references roles(id) on delete CASCADE,
+manager_id INTEGER ,
 INDEX man_ind (manager_id),
-Constraint fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) on delete set null
+Constraint fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL);
+
+create table role (
+id INTEGER AUTO_INCREMENT primary key,
+title VARCHAR(30) not null,
+salary DECIMAL not null,
+department_id INT not null,
+INDEX dep_ind (department_id),
+Constraint fk_department 
+foreign key (department_id) references department(id) on delete CASCADE
 );
-
-
-
 use employees;
 Insert Into department
 (name)

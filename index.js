@@ -4,17 +4,18 @@ const { createConnection } = require('net');
 const { connect } = require('http2');
 const { from } = require('rxjs');
 const { join } = require('path');
+const { type } = require('os');
 require('console.table');
 
 // Intial questions and prompts
 
 const promptMessages = {
     viewAllEmployees: "View All Employees",
-    ViewByDepartment:"View All Employess by Department",
-    ViewByManager:"View all Employees By Manager",
-    addEmployee: "Add an Employee",
+    ViewByDepartments:"View All Employess by Department",
+    ViewByManagers:"View all Employees By Manager",
     removeEmployee:"Remove Employee", 
     updateRole:"Update Employee Role",
+    addNewEmployee: "Add Employee",
     updateEmployeeManager:"update Employee Manager",
     exit: "Exit"
 };
@@ -29,14 +30,14 @@ function prompt(){
     .prompt({
         name:'action',
         type:'list',
-        message:'Which action would you like to do?',
+        message:'Which action would you like to use?',
         choices:[
             promptMessages.viewAllEmployees,
-            promptMessages.ViewByDepartment,
-            promptMessages.ViewByManager,
-            promptMessages.addEmployee,
+            promptMessages.ViewByDepartments,
+            promptMessages.ViewByManagers,
             promptMessages.removeEmployee, 
             promptMessages.updateRole,
+            promptMessages.addNewEmployee,
             promptMessages.updateEmployeeManager,
             promptMessages.exit
         ]
@@ -48,13 +49,13 @@ function prompt(){
         case promptMessages.viewAllEmployees:
             viewAllEmployees();
                 break;
-        case promptMessages.ViewByDepartment:
+        case promptMessages.ViewByDepartments:
              ViewByDepartment();
                 break;
         case promptMessages.addEmployee:
             addEmployee();
                 break;
-        case promptMessages.ViewByManager:
+        case promptMessages.ViewByManagers:
             ViewByManager();
                 break;
         case promptMessages.removeEmployee:
@@ -98,21 +99,21 @@ function viewAllEmployees() {
     ,console.table(res));
     prompt();
 };
-
-
-
+const addEmployee = () => {
+    return inquirer.prompt(askName());
+ 
 // functions selections
 function askName(){
     return ([
         {
             name: "first",
             type: "input",
-            message: "Input first name"
+            message: "Please input employee's first name."
         },
         {
             name: "last",
             type: "input",
-            message: "Input last name"
+            message: "Please input employee's last name."
         }
     ])
 };
@@ -120,264 +121,9 @@ function askId(){
     return ([{
         name: "name",
         type: "input",
-        message: "Input the employee ID"
+        message: "Please input the employee ID"
     }]);
 };
 function remove(input){
     const prompt;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function for Name
-function askName() {
-    return ([{
-        name: "first",
-        type: "input",
-        message: "Please enter the first name:"
-    },
-    {
-        name:"last",
-        type:"input",
-        message:"Enter the last name:"
-    }
-]);
-}
+};
