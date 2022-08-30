@@ -3,8 +3,6 @@ SELECT role.id, role.title FROM role ORDER BY role.id;
 SELECT first_name, last_name, role_id FROM employee WHERE employee.id = 4;
 SELECT * FROM employee;
 
-
-
 SELECT department.id, department.name FROM department ORDER BY department.id;
 
 SELECT department.name as department, role.title, employee.id, employee.first_name, employee.last_name
