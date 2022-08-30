@@ -30,3 +30,38 @@ FROM employee
 LEFT JOIN role on (role.id = employee.role_id)
 LEFT JOIN departments on (departments.id = role.departments_id)
 ORDER BY role.title;
+
+use employees;
+INSERT INTO department
+(name)
+values
+('Sales'),
+('Engineering'),
+('Finance'),
+('Legal');
+
+
+
+INSERT INTO role
+(title, salary, department_id)
+Values
+('Salesperson', 80000, 1),
+('Lead Engineer', 150000, 2),
+('Software Engineer', 120000, 2),
+('Account Manager', 160000, 3),
+('Accountant', 125000, 3),
+('Legal Team Lead', 250000, 4),
+('Lawyer', 150000, 4);
+
+
+Insert Into employee
+(first_name, last_name, role_id, manager_id)
+
+Values
+('Mike', 'Chan', 1),
+('Ashley', 'Rodriguez', 2, null),
+('Kevin', 'Tupik', 2),
+('Kunal', 'Singh', 3, null),
+('Malia', 'Brown', 3),
+('Sarah','Lourd', 4, null),
+('Tom', 'Allen',4);

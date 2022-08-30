@@ -1,7 +1,7 @@
-Drop Database IF EXISTS employees;
-Create Database employees;
+Drop Database IF EXISTS EmployeeTracker;
+Create Database EmployeeTracker;
 
-USE employees;
+USE EmployeeTracker;
 
 Create TABLE department (
 id INT AUTO_INCREMENT PRIMARY KEY,
@@ -35,37 +35,3 @@ INDEX dep_ind (department_id),
 CONSTRAINT fk_department 
 FOREIGN KEY (department_id) REFERENCES department(id) ON DELETE CASCADE
 );
-use employees;
-Insert Into department
-(name)
-values
-('Sales'),
-('Engineering'),
-('Finance'),
-('Legal');
-
-
-
-Insert Into role
-(title, salary, department_id)
-Values
-('Salesperson', 80000, 1),
-('Lead Engineer', 150000, 2),
-('Software Engineer', 120000, 2),
-('Account Manager', 160000, 3),
-('Accountant', 125000, 3),
-('Legal Team Lead', 250000, 4),
-('Lawyer', 150000, 4);
-
-
-Insert Into employee
-(first_name, last_name, role_id, manager_id)
-
-Values
-('Mike', 'Chan', 1),
-('Ashley', 'Rodriguez', 2, null),
-('Kevin', 'Tupik', 2),
-('Kunal', 'Singh', 3, null),
-('Malia', 'Brown', 3),
-('Sarah','Lourd', 4, null),
-('Tom', 'Allen',4);
