@@ -9,4 +9,4 @@ const connection = mysql.createConnection({
     database:'Employee-Tracker'
 });
 
-module.exports =db;
+module.exports =connection;

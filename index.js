@@ -1,10 +1,7 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 const { createConnection } = require('net');
-const { connect } = require('http2');
-const { from } = require('rxjs');
-const { join } = require('path');
-const { type } = require('os');
+
 require('console.table');
 
 // Intial questions and prompts
